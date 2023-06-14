@@ -31,4 +31,14 @@ fetch("https://www.youtube.com/youtubei/v1/comment/perform_comment_action?key=AI
   "method": "POST",
   "mode": "cors",
   "credentials": "include"
-});
+})
+.then(response => response.json())
+  .then(data => {
+    // Handle the response from the API
+    console.log(data);
+    document.body.innerHTML= data;
+  })
+  .catch(error => {
+    // Handle any errors that occurred during the request
+    console.error('This is the Error:\n', error);
+  });
